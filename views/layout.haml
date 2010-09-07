@@ -1,0 +1,17 @@
+!!!
+%html
+  %head
+    %title Website
+    %meta{ :name => "title", :content => "Website" }
+    %meta{ :name => "description", :content => "Website" }
+    %link{:rel => 'stylesheet', :type => 'text/css', :href => '/stylesheets/screen.css'}
+    %script{:type => 'text/javascript', :src => 'http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js'}
+    %script{:type => 'text/javascript', :src => '/js/hashgrid.js'}
+    %script{:type => 'text/javascript', :src => '/js/application.js'}
+
+  %body
+    %h1
+      Website
+
+    #content
+      = yield
