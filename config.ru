@@ -3,6 +3,6 @@ require 'bundler'
 Bundler.setup
 
 require 'sinatra'
-require 'lib/partials.rb'
+require 'lib/partials'
 require 'main'
 run Main
