@@ -25,8 +25,6 @@ the stylesheets are also compressed.
 
 * Create a before action to assign the correct CSS class (.ie8, .ie7, .ie6, etc.) to the <code>\<html\></code> tag.
 
----
-
 ## Project Info
 
 The Sinatra HTML5 Boilerplate is hosted on Github: http://github.com/curthasselschwert/sinatra-html5-boilerplate, where your contributions, forkings, comments and feedback are greatly welcomed.
