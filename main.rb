@@ -4,7 +4,7 @@ class Main < Sinatra::Base
 
   configure do
     # Configure public directory
-    set :public, File.dirname(__FILE__) + '/public'
+    set :public, File.join(File.dirname(__FILE__), 'public')
 
     # Configure HAML and SASS
     set :haml, { :format => :html5 }
