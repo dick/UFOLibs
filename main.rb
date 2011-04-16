@@ -30,7 +30,8 @@ class Main < Sinatra::Base
 
 	get '/:verb/:place' do
 		results_json = ufo_search(params[:verb], params[:place])
-		results_json.each { |x| puts x["description"] } 
+		results_json.each { |x| puts x["description"] }
+	  redirect '/'
 	end
 
   get "/css/style.css" do
