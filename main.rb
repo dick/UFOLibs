@@ -25,6 +25,7 @@ class Main < Sinatra::Base
 	end
 
   get '/' do
+
     haml :index
   end
 
