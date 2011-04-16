@@ -13,6 +13,7 @@ class Main < Sinatra::Base
 
 	helpers do
 		API_KEY = "dick-e9kYKOdVF-HA7sPuwC2RJT9Hz69"
+
 		def ufo_search(description, location)
 			url = 'http://api.infochimps.com/science/astronomy/seti/nuforc/ufo_sightings_search?q=' +
 											  'description:' + description +
@@ -22,6 +23,7 @@ class Main < Sinatra::Base
 			results = JSON.parse(buffer)
 			return results	
 		end
+
 	end
 
   get '/' do
