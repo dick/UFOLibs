@@ -1,3 +1,5 @@
+Chimps::CONFIG[:query][:key] = "dick-e9kYKOdVF-HA7sPuwC2RJT9Hz69"
+
 class Main < Sinatra::Base
 
   helpers Sinatra::Partials
@@ -12,12 +14,10 @@ class Main < Sinatra::Base
   end
 
 	helpers do
-		
-		::Chimps::Config.load
 
 		def ufo_search(description, location)
-			authenticated_request = Chimps::QueryRequest.new("science/astronomy/seti/nuforc/ufo_sightings_search")
-		
+			results = Chimps::QueryRequest.new("science/astronomy/seti/nuforc/ufo_sightings_search", :query_params => { :description => params[:description], :location => params[:location]).get
+			return results	
 		end
 
 	end
