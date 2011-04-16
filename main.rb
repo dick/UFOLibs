@@ -32,7 +32,7 @@ class Main < Sinatra::Base
 
 	get '/:verb/:location' do
 		results_json = ufo_search(params[:verb], params[:location], 5)
-		@string_results results_json.to_s 
+		@string_results = results_json.to_s 
 	  @title = "#{params[:verb]}/#{params[:place]}"
 		haml :display_results
 	end
