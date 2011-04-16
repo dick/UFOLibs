@@ -1,11 +1,20 @@
 GEM
   remote: http://rubygems.org/
   specs:
+    addressable (2.2.5)
+    chimps (0.3.5)
+      addressable
+      configliere (>= 0.3.2)
+      json
+      rest-client (>= 1.6.1)
+    configliere (0.3.4)
     haml (3.0.18)
     json (1.5.1)
     json (1.5.1-java)
+    mime-types (1.16)
     rack (1.2.1)
-    rest-open-uri (1.0.0)
+    rest-client (1.6.1)
+      mime-types (>= 1.16)
     sinatra (1.0)
       rack (>= 1.0)
 
@@ -14,7 +23,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  chimps
   haml
   json
-  rest-open-uri
   sinatra

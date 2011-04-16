@@ -12,17 +12,12 @@ class Main < Sinatra::Base
   end
 
 	helpers do
-		API_KEY = "dick-e9kYKOdVF-HA7sPuwC2RJT9Hz69"
+		
+		Chimps::Config.load
 
 		def ufo_search(description, location)
-			url = 'http://api.infochimps.com/science/astronomy/seti/nuforc/ufo_sightings_search?q=' +
-											  'description:' + description +
-												'&location:' + location + 
-												'&apikey=' + API_KEY
-			puts url
-			buffer = open(url).read
-			results = JSON.parse(buffer)
-			return results	
+			authenticated_request = Chimps::QueryRequest.new("science/astronomy/seti/nuforc/ufo_sightings_search")
+		
 		end
 
 	end
