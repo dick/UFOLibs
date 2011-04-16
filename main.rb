@@ -13,7 +13,7 @@ class Main < Sinatra::Base
 
 	helpers do
 		
-		Chimps::Config.load
+		::Chimps::Config.load
 
 		def ufo_search(description, location)
 			authenticated_request = Chimps::QueryRequest.new("science/astronomy/seti/nuforc/ufo_sightings_search")
