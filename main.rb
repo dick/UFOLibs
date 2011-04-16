@@ -25,14 +25,15 @@ class Main < Sinatra::Base
 	end
 
   get '/' do
-
+		@title = "Home" 
     haml :index
   end
 
 	get '/:verb/:place' do
-		results_json = ufo_search(params[:verb], params[:place])
-		results_json.each { |x| puts x["description"] }
-	  redirect '/'
+		#results_json = ufo_search(params[:verb], params[:place])
+		#results_json.each { |x| puts x["description"] }
+	  @title = "#{params[:verb]}/#{params[:place]}"
+		haml :index
 	end
 
   get "/css/style.css" do
