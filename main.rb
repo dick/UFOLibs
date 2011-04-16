@@ -32,7 +32,7 @@ class Main < Sinatra::Base
   end
 
 	get '/find/:verb/:location' do
-		@results = ufo_search(params[:verb], params[:location], 5)
+		@results = ufo_search(params[:verb].to_s, params[:location].to_s, 5.to_s)
 	  @title = "#{params[:verb]}/#{params[:location]}"
 		haml :display_results
 	end
