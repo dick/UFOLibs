@@ -32,7 +32,7 @@ class Main < Sinatra::Base
 
 	get '/:verb/:location' do
 		results_json = ufo_search(params[:verb], params[:location])
-		results_json.each { |x| puts x["description"] }
+		p results_json.inspect
 	  @title = "#{params[:verb]}/#{params[:place]}"
 		haml :index
 	end
