@@ -13,7 +13,7 @@ class Main < Sinatra::Base
 
 	helpers do
 		API_KEY = "dick-e9kYKOdVF-HA7sPuwC2RJT9Hz69"
-		def ufo_search(description, place)
+		def ufo_search(description, location)
 			url = 'http://api.infochimps.com/science/astronomy/seti/nuforc/ufo_sightings_search?q=' +
 											  'description:' + description +
 												'&location:' + location + 
@@ -29,8 +29,8 @@ class Main < Sinatra::Base
     haml :index
   end
 
-	get '/:verb/:place' do
-		results_json = ufo_search(params[:verb], params[:place])
+	get '/:verb/:location' do
+		results_json = ufo_search(params[:verb], params[:location])
 		#results_json.each { |x| puts x["description"] }
 	  @title = "#{params[:verb]}/#{params[:place]}"
 		haml :index
