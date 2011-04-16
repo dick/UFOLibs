@@ -1,6 +1,7 @@
 require 'chimps'
 
-Chimps::CONFIG[:query][:key] = "dick-e9kYKOdVF-HA7sPuwC2RJT9Hz69"
+Chimps.boot!
+Chimps.config[:query][:key] = "dick-e9kYKOdVF-HA7sPuwC2RJT9Hz69"
 
 class Main < Sinatra::Base
 
