@@ -4,5 +4,5 @@ Bundler.setup
 
 require 'sinatra'
 require './lib/partials.rb'
-require 'main'
+require './main.rb'
 run Main
