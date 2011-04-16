@@ -20,7 +20,7 @@ class Main < Sinatra::Base
 												'&location:' + location + 
 												'&apikey=' + API_KEY
 			puts url
-			buffer = open(url, "UserAgent" => "Ruby-Wget").read
+			buffer = open(url).read
 			results = JSON.parse(buffer)
 			return results	
 		end
