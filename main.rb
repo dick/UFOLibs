@@ -20,7 +20,7 @@ class Main < Sinatra::Base
 
 		def ufo_search(description, location)
 			results = Chimps::QueryRequest.new("science/astronomy/seti/nuforc/ufo_sightings_search", :query_params => { :description => params[:description], :location => params[:location] } ).get
-			return results	
+			return results.parse!	
 		end
 
 	end
@@ -32,7 +32,7 @@ class Main < Sinatra::Base
 
 	get '/:verb/:location' do
 		results_json = ufo_search(params[:verb], params[:location])
-		p results_json.inspect
+		results_json.each { |x| p x } 
 	  @title = "#{params[:verb]}/#{params[:place]}"
 		haml :index
 	end
