@@ -16,7 +16,7 @@ class Main < Sinatra::Base
 	helpers do
 
 		def ufo_search(description, location)
-			results = Chimps::QueryRequest.new("science/astronomy/seti/nuforc/ufo_sightings_search", :query_params => { :description => params[:description], :location => params[:location]).get
+			results = Chimps::QueryRequest.new("science/astronomy/seti/nuforc/ufo_sightings_search", :query_params => { :description => params[:description], :location => params[:location] } ).get
 			return results	
 		end
 
