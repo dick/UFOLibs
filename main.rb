@@ -21,7 +21,7 @@ class Main < Sinatra::Base
 		def ufo_search(description, location, size)
 			results = Chimps::QueryRequest.new("science/astronomy/seti/nuforc/ufo_sightings_search", :query_params => { "q" => "description:" + description + "&location:" + location } ) 
 			p results
-			return results.get.parse	
+			return results.get.parse.data	
 		end
 
 	end
