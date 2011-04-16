@@ -1,2 +1,7 @@
-%p= @results.class
-%p= @results
+%table
+  - @results.each do |result|
+  %tr
+    %td= "Location: #{result[:location]}"
+    %td= "Description: #{result[:description]}"
+
+  
