@@ -31,7 +31,7 @@ class Main < Sinatra::Base
     haml :index
   end
 
-  get "/css/style.css" do
+  get '/css/style.css' do
     content_type 'text/css'
     sass :"css/style"
   end
