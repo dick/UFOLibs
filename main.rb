@@ -13,7 +13,7 @@ class Main < Sinatra::Base
 
     # Configure HAML and SASS
     set :haml, { :format => :html5 }
-    set :sass, { :style => :compressed } if ENV['RACK_ENV'] == 'production'
+    # set :sass, { :style => :compressed } if ENV['RACK_ENV'] == 'production'
   end
 
 	helpers do
