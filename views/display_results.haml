@@ -1,6 +1,6 @@
-%p= @results.class
+%p= @results_array.class
 %table
-  - @results.each do |result|
+  - @results_array.each do |result|
     %tr
       %td= "Location: #{result['location']}"
       %td= "Description: #{result['description']}"
