@@ -31,15 +31,14 @@ class Main < Sinatra::Base
     haml :index
   end
 
-	get '/find/:verb/:location' do
-		@results_array = ufo_search(params[:verb].to_s, params[:location].to_s, 5.to_s)
-	  @title = "#{params[:verb]}/#{params[:location]}"
-		haml :display_results
-	end
-
   get "/css/style.css" do
     content_type 'text/css'
     sass :"css/style"
   end
 
+	get '/find/:verb/:location' do
+		@results_array = ufo_search(params[:verb].to_s, params[:location].to_s, 5.to_s)
+	  @title = "#{params[:verb]}/#{params[:location]}"
+		haml :display_results
+	end
 end
