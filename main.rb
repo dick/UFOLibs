@@ -1,6 +1,5 @@
 require 'chimps'
 
-# Chimps.boot!
 Chimps.config[:query][:key] = "dick-e9kYKOdVF-HA7sPuwC2RJT9Hz69"
 
 class Main < Sinatra::Base
@@ -13,21 +12,36 @@ class Main < Sinatra::Base
 
     # Configure HAML and SASS
     set :haml, { :format => :html5 }
-    # set :sass, { :style => :compressed } if ENV['RACK_ENV'] == 'production'
+    set :sass, { :style => :compressed } if ENV['RACK_ENV'] == 'production'
   end
 
 	helpers do
 
-		def ufo_search(description, location, size)
-			results = Chimps::QueryRequest.new("science/astronomy/seti/nuforc/ufo_sightings_search", :query_params => { "q" => "description:" + description + "&location:" + location } ) 
+		def ufo_search(descriptions)
+			query_string = descriptions.inject("") { |memo, term| 
+							memo += term
+							memo += "&"
+			}
+			results = Chimps::QueryRequest.new("science/astronomy/seti/nuforc/ufo_sightings_search", :query_params => { "q" => query_string } ) 
 			p results
-			return results.get.parse!.data['results']	
+			return results.get.parse!.data	
 		end
+	
+		def random_sentence
+			locations = ["Lubbock", "Roswell", "Flatwoods", "Phoenix", "TX"] 
+	  	nouns = ["lights", "saucer", "probe", "UFO", "cigar", "abduction"]
+	  	adjectives = ["bright", "green", "white", "flashing", "blue", "round", "brilliant"]
+			verbs = ["saw", "heard", "abduct", "witness", "experience", "experienced"] 	
 
+			res = []
+			res << verbs[rand(verbs.length)] << adjectives[rand(adjectives.length)] << nouns[rand(nouns.length)] << locations[rand(locations.length)]
+			return res
+		end
 	end
 
   get '/' do
-		@title = "Home" 
+		@title = "Home"
+	  @random_sentence = random_sentence	
     haml :index
   end
 
@@ -36,9 +50,17 @@ class Main < Sinatra::Base
     sass :'css/style'
   end
 
-	get '/find/:verb/:location' do
-		@results_array = ufo_search(params[:verb].to_s, params[:location].to_s, 5.to_s)
-	  @title = "#{params[:verb]}/#{params[:location]}"
+	get '/find/*' do
+		@search = ufo_search(params[:splat])
+		@results_array = @search["results"]
+	  @total_results = @search["total"]
+	  @title = "UFOLibs:" + params[:splat].join('/') 
 		haml :display_results
 	end
+
+	post '/search' do
+		string = params.values.join('/')
+		redirect("/find/" + string)
+	end
+
 end

@@ -1,22 +1,14 @@
-%h1 Header 1
-%h2 Header 2
-%h3 Header 3
-%h4 Header 4
-%h5 Header 5
-%h6 Header 6
+%h1 Welcome to UFOLibs =) 
 
-%p
-  Aliquam sodales varius urna sit amet iaculis. Sed egestas elementum lorem, aliquet cursus nisl lacinia vitae.
-  Phasellus vitae dolor a nulla venenatis porttitor. Mauris consectetur cursus venenatis. Curabitur vel lectus 
-  et sapien pellentesque malesuada quis non lectus. Quisque viverra elit id felis pulvinar non cursus quam bibendum. 
-  Suspendisse posuere ligula quis nisi malesuada ullamcorper. Phasellus ut diam diam. In quis nibh felis, et facilisis 
-  est. Suspendisse condimentum justo eu enim suscipit id ullamcorper metus luctus.
-
-  %a{ :href => 'http://www.google.com' } Google
-
-%blockquote
-  Aliquam sodales varius urna sit amet iaculis. Sed egestas elementum lorem, aliquet cursus nisl lacinia vitae.
-  Phasellus vitae dolor a nulla venenatis porttitor. Mauris consectetur cursus venenatis. Curabitur vel lectus 
-  et sapien pellentesque malesuada quis non lectus. Quisque viverra elit id felis pulvinar non cursus quam bibendum. 
-  Suspendisse posuere ligula quis nisi malesuada ullamcorper. Phasellus ut diam diam. In quis nibh felis, et facilisis 
-  est. Suspendisse condimentum justo eu enim suscipit id ullamcorper metus luctus.
+%p 
+  %h2 
+    %form{:action => "/search", :enctype => "multipart/form-data", :method => "post"} 
+      I
+      %input{:size => 15, :name => "verb", :placeholder => @random_sentence[0]}
+      a  
+      %input{:size => 15, :name => "adjective", :placeholder => @random_sentence[1]}
+      %input{:size => 15, :name => "noun", :placeholder => @random_sentence[2]}
+      in  
+      %input{:size => 15, :name => "location", :placeholder => @random_sentence[3]}
+      %br  
+      %input{:type => "submit", :value => "Anyone else?"}

@@ -1,6 +1,15 @@
-%p= @results_array.class
+- if @total_results
+  %p= "Total results: #{@total_results}"
+- if !@total_results
+  You're the only one, buddy. Time to call Art Bell!
 %table
-  - @results_array.each do |result|
-    %tr
-      %td= "Location: #{result['location']}"
-      %td= "Description: #{result['description']}"
+  - n = 1
+  - if @results_array
+    - @results_array.each do |result|
+      %tr
+        %td
+          %h2= "#{n} - #{result['location']}"
+      %tr  
+        %td= "Description: #{result['description']}"
+      - break if n >= 5
+      - n += 1
