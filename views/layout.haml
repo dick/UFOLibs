@@ -8,7 +8,7 @@
 
     %title= @title
     %meta{ :name => "description", :content => "" }
-    %meta{ :name => "author", :content => "" }
+    %meta{ :name => "author", :content => "Dick Hall" }
 
     -# Mobile Viewport Fix
     -# j.mp/mobileviewport & davidbcalhoun.com/2010/viewport-metatag 
@@ -32,8 +32,15 @@
     %script{ :src => "/js/modernizr-1.5.min.js" }
 
   %body
-
-    = yield
+    .box
+      .header 
+       
+      .content
+        = yield
+    
+      .footer
+        .copyright
+          = "&copy; Dick Hall, #{Time.now.year}"
 
     -# Javascript at the bottom for fast page loading
 
