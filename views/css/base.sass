@@ -5,7 +5,17 @@
 // remove arial, helvetica from explicit font stack
 // make the line-height relative and unit-less
 // remove the pre, code styles
+$width: 677px 
+$height: 992px 
+$dark-blue: #0D0D36
+$medium-blue: #262652
+$light-blue: #6666AA
+
+html
+
 body
+  margin: 0 auto
+  margin-top: 30px
   font: 13px sans-serif
   *font-size: small
   *font: x-small
@@ -26,7 +36,7 @@ pre, code, kbd, samp
 
 // #444 looks better than black: twitter.com/H_FJ/statuses/11800719859/
 body, select, input, textarea
-  color: #444
+  color: #000
 
 // Headers (h1,h2,etc) have no default font-size or margin,
 // you'll want to define those yourself.
@@ -179,3 +189,32 @@ button
   // Hides from IE-mac \*
   .clearfix
     display: block
+
+.box
+  width: $width 
+  height: $height
+  background-image: url('/images/ufo_background.jpg') 
+  margin: 0px auto 
+  text-align: center
+  .header 
+    width: $width 
+    height: 50px
+    background-color: #FFF
+    color: #25253E
+    margin: 0px auto
+
+  .content
+    width: $width - 100px
+    margin: 0px auto
+    margin-top: 200px
+    height: 500px
+
+  .footer 
+    width: $width
+    height: 100px
+    margin: 0px auto
+    margin-top: 10px
+    margin-bottom: 10px
+    .copyright
+      font-size: 15px
+      text-align: center
