@@ -64,7 +64,7 @@ class Main < Sinatra::Base
 
 	post '/search' do
 		# Fix for blank form values to avoid /// in url 
-		string = "/find" + params.values.join('/')
+		string = "/find/" + params.values.join('/')
 		string[/\/{2,}/] = "/" while string[/\/{2,}/]
 		redirect(string)
 	end
