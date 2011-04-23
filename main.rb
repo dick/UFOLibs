@@ -53,6 +53,7 @@ class Main < Sinatra::Base
 	get '/find/*' do
 		@search = ufo_search(params[:splat])
 		@results_array = @search["results"]
+		@result = @results_array[rand(@results_array.length)]
 	  @total_results = @search["total"]
 	  @title = "UFOLibs:" + params[:splat].join('/') 
 		haml :display_results

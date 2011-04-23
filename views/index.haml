@@ -4,13 +4,15 @@
   %h2 
     %form{:action => "/search", :enctype => "multipart/form-data", :method => "post"} 
       I
-      %input{:size => 15, :name => "verb", :placeholder => @random_sentence[0]}
+      %input{:size => 15, :name => "verb", :value => @random_sentence[0]}
       a  
-      %input{:size => 15, :name => "adjective", :placeholder => @random_sentence[1]}
-      %input{:size => 15, :name => "noun", :placeholder => @random_sentence[2]}
+      %input{:size => 15, :name => "adjective", :value => @random_sentence[1]}
+      %input{:size => 15, :name => "noun", :value => @random_sentence[2]}
       in  
-      %input{:size => 15, :name => "location", :placeholder => @random_sentence[3]}
+      %input{:size => 15, :name => "location", :value => @random_sentence[3]}
       %br  
       %input{:type => "submit", :value => "Anyone else?"}
 
-%h2 Powered by Infochimps
+%h2 
+  %a{ :href => "http://www.infochimps.com/apis" }
+    Powered by Infochimps

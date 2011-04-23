@@ -1,17 +1,19 @@
-- if @total_results
-  %p= "Total results: #{@total_results}"
-- if !@total_results
-  You're the only one, buddy. Time to call Art Bell!
+- if @total_results != 0
+  %h1
+    You are not alone:
+- if @total_results == 0
+  %h1 
+    You have had a truly unique encounter.
+    %br
+    %a{:href => 'http://www.coasttocoastam.com/' }
+      Time to call George Noory.
+    %br
 %table
-  - n = 1
-  - if @results_array
-    - @results_array.each do |result|
-      %tr
-        %td
-          %h2= "#{n} - #{result['location']}"
-      %tr  
-        %td= "Description: #{result['description']}"
-      - break if n >= 1
-      - n += 1
-%a{:href => "/"} 
-  Take me home!
+  - if @result
+    %tr
+      %td
+        %h2= "#{@result['location']}"
+    %tr  
+      %td= "#{@result['description'][0,1500]} ..."
+%a{:href => "/"}
+  I saw something else...

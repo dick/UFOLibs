@@ -37,10 +37,11 @@
        
       .content
         = yield
-    
       .footer
-        .copyright
-          = "&copy; Dick Hall, #{Time.now.year}"
+        %h3
+          Made by
+          %a{ :href => "http://twitter.com/#!/Dick_Hall"}
+            Dick Hall
 
     -# Javascript at the bottom for fast page loading
 
