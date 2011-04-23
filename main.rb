@@ -52,14 +52,18 @@ class Main < Sinatra::Base
 
 	get '/find/*' do
 		@search = ufo_search(params[:splat])
+		# Pulling out the results array from the "data" hash returned
 		@results_array = @search["results"]
+		# Picking a random result for now to fit on the poster
 		@result = @results_array[rand(@results_array.length)]
+		# Pulling out the total results value from the "data" hash
 	  @total_results = @search["total"]
 	  @title = "UFOLibs - Are you alone?" 
 		haml :display_results
 	end
 
 	post '/search' do
+		# Fix for blank form values to avoid /// in url 
 		string = params.values.join('/')
 		string[/\/{2,}/] = "/" while string[/\{2,}/]
 		redirect("/find/" + string)
