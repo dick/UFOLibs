@@ -28,10 +28,10 @@ class Main < Sinatra::Base
 		end
 	
 		def random_sentence
-			locations = ["Lubbock", "Roswell", "Flatwoods", "Phoenix", "TX"] 
+			locations = ["CA", "Texas", "California", "Lubbock", "Roswell", "Flatwoods", "Phoenix", "TX"] 
 	  	nouns = ["lights", "saucer", "probe", "UFO", "cigar", "abduction"]
 	  	adjectives = ["bright", "green", "white", "flashing", "blue", "round", "brilliant"]
-			verbs = ["saw", "heard", "abduct", "witness", "experience", "experienced"] 	
+			verbs = ["saw", "heard", "witness", "experience", "experienced"] 	
 
 			res = []
 			res << verbs[rand(verbs.length)] << adjectives[rand(adjectives.length)] << nouns[rand(nouns.length)] << locations[rand(locations.length)]
@@ -40,7 +40,7 @@ class Main < Sinatra::Base
 	end
 
   get '/' do
-		@title = "Home"
+		@title = "UFOLibs - Are you alone?"
 	  @random_sentence = random_sentence	
     haml :index
   end
@@ -55,7 +55,7 @@ class Main < Sinatra::Base
 		@results_array = @search["results"]
 		@result = @results_array[rand(@results_array.length)]
 	  @total_results = @search["total"]
-	  @title = "UFOLibs:" + params[:splat].join('/') 
+	  @title = "UFOLibs - Are you alone?" 
 		haml :display_results
 	end
 
