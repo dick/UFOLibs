@@ -61,6 +61,7 @@ class Main < Sinatra::Base
 
 	post '/search' do
 		string = params.values.join('/')
+		string[/\/{2,}/] = "/"
 		redirect("/find/" + string)
 	end
 
