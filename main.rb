@@ -1,8 +1,10 @@
 require 'chimps'
 require './apikey.rb'
 
+# Set API_KEY manually
 Chimps.config[:query][:key] = API_KEY
-
+# Or configure your .chimps file
+#Chimps.boot!
 
 class Main < Sinatra::Base
 
