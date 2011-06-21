@@ -1,6 +1,8 @@
 require 'chimps'
+require './apikey.rb'
 
-Chimps.config[:query][:key] = "dick-e9kYKOdVF-HA7sPuwC2RJT9Hz69"
+Chimps.config[:query][:key] = API_KEY
+
 
 class Main < Sinatra::Base
 
