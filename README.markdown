@@ -10,8 +10,14 @@ Go to http://ufolibs.heroku.com to see it in action.
 
 Check out all of Infochimps' APIs at http://www.infochimps.com/apis 
 
+## API_KEY
+
+Store your Infochimps API key as the API_KEY config var.  
+
+See here for more details: http://devcenter.heroku.com/articles/config-vars
+
 ## Project Info
 
-Made by Dick Hall, April 2011
+Built by @Dick_Hall, April 2011
 
 Powered by Infochimps
