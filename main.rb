@@ -1,7 +1,7 @@
 require 'chimps'
 
 # Set API_KEY manually
-Chimps.config[:query][:key] = API_KEY
+Chimps.config[:query][:key] = ENV['API_KEY']
 
 class Main < Sinatra::Base
 
